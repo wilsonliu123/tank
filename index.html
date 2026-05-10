@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Tank Command</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&family=VT323&display=swap');
+      
+      :root {
+        --neon-green: #0f0;
+        --neon-blue: #00f3ff;
+        --dark-bg: #050505;
+      }
+      
+      body {
+        font-family: 'Orbitron', sans-serif;
+        background-color: var(--dark-bg);
+        color: #eee;
+        margin: 0;
+        overflow: hidden;
+      }
+      
+      /* Cyberpunk Grid Background */
+      
+      .bg-grid {
+        background-image: 
+          linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
+        background-position: center center;
+        mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+      }
+      
+      /* CRT Scanline Effect */
+      
+      .crt-overlay {
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
+      
+      @keyframes scanline {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+      }
+      
+      .scan-bar {
+        width: 100%;
+        height: 5px;
+        background: rgba(0, 255, 255, 0.3);
+        opacity: 0.4;
+        animation: scanline 6s linear infinite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 20;
+      }
+      
+      /* Neon Glow Utilities */
+      
+      .text-glow {
+        text-shadow: 0 0 5px rgba(0, 243, 255, 0.8), 0 0 10px rgba(0, 243, 255, 0.5);
+      }
+      
+      .text-glow-green {
+        text-shadow: 0 0 5px rgba(74, 222, 128, 0.8), 0 0 10px rgba(74, 222, 128, 0.5);
+      }
+      
+      .box-glow {
+        box-shadow: 0 0 15px rgba(0, 243, 255, 0.15), inset 0 0 15px rgba(0, 243, 255, 0.05);
+      }
+      
+      /* Custom Scrollbar */
+      
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #00f3ff;
+        border-radius: 0;
+      }
+      
+      .font-retro {
+        font-family: 'Press Start 2P', cursive;
+      }
+      
+      .font-term {
+        font-family: 'VT323', monospace;
+      }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-bkcZzuV-.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+</body>
+</html>
